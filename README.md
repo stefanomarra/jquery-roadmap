@@ -22,6 +22,8 @@ Another timeline jquery plugin. This plugin was custom made for another project.
 	$("#my-timeline").timeline(data, options);
 	```
 
+## Parameters
+
 ### Data ###
 
 First parameter is an array of objects with the following structure:
