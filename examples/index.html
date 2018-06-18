@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Timeline</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../dist/jquery.timeline.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div id="example1"></div>
+
+
+    <!-- Include jQuery -->
+    <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Include jQuery Timeline Plugin -->
+    <script src="../dist/jquery.timeline.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+        	var events = [
+        		{
+        			date: 'Q1 - 2018',
+        			content: 'Lorem ipsum dolor sit amet'
+        		},
+        		{
+        			date: 'Q2 - 2018',
+        			content: 'Lorem ipsum dolor sit amet'
+        		},
+        		{
+        			date: 'Q3 - 2018',
+        			content: 'Lorem ipsum dolor sit amet'
+        		},
+        		{
+        			date: 'Q4 - 2018',
+        			content: 'Lorem ipsum dolor sit amet'
+        		},
+                {
+                    date: 'Q1 - 2019',
+                    content: 'Lorem ipsum dolor sit amet'
+                },
+                {
+                    date: 'Q2 - 2019',
+                    content: 'Lorem ipsum dolor sit amet'
+                },
+                {
+                    date: 'Q3 - 2019',
+                    content: 'Lorem ipsum dolor sit amet'
+                },
+                {
+                    date: 'Q4 - 2019',
+                    content: 'Lorem ipsum dolor sit amet'
+                },
+                {
+                    date: 'Q1 - 2020',
+                    content: 'Lorem ipsum dolor sit amet'
+                },
+                {
+                    date: 'Q2 - 2020',
+                    content: 'Lorem ipsum dolor sit amet'
+                },
+                {
+                    date: 'Q3 - 2020',
+                    content: 'Lorem ipsum dolor sit amet'
+                },
+                {
+                    date: 'Q4 - 2020',
+                    content: 'Lorem ipsum dolor sit amet'
+                },
+        		{
+        			date: 'Q1 - 2021',
+        			content: 'Lorem ipsum dolor sit amet'
+        		},
+        		{
+        			date: 'Q2 - 2021',
+        			content: 'Lorem ipsum dolor sit amet'
+        		},
+        		{
+        			date: 'Q3 - 2021',
+        			content: 'Lorem ipsum dolor sit amet'
+        		},
+        		{
+        			date: 'Q4 - 2021',
+        			content: 'Lorem ipsum dolor sit amet'
+        		}
+        	];
+
+            $('#example1').timeline(events);
+		});
+    </script>
+
+</body>
+</html>
