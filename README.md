@@ -74,9 +74,25 @@ $("#my-timeline").timeline(data, {
 
 #### slide ####
 
->Sets the slide to show after initialization
+>Sets the slide to show after initialization.
 
 >*Default value:* 1
+
+#### prevArrow ####
+
+>Allows you to customize the "Previous" arrow. HTML is allowed.
+
+>*Default value:* prev
+
+#### nextArrow ####
+
+>Allows you to customize the "Next" arrow. HTML is allowed.
+
+>*Default value:* next
+
+#### eventTemplate ####
+
+>Allows you to customize the event template. Use `####DATE###` and `####CONTENT###` as tokens to show the events date and content.
 
 ## Contributing
 
