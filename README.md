@@ -53,13 +53,11 @@ Second parameter is an object of properties used to customize the timeline. Here
 
 ```js
 $("#my-timeline").timeline(data, {
-	events_per_slide: 6,
+	eventsPerSlide: 6,
 	slide: 1,
-	navigation: {
-		prev: 'prev',
-		next: 'next'
-	},
-	event_template: '<li class="timeline__events__event">' +
+	prevArrow: 'prev',
+	nextArrow: 'next',
+	eventTemplate: '<li class="timeline__events__event">' +
 		'<div class="event">' +
 			'<div class="event__date">####DATE###</div>' +
 			'<div class="event__content">####CONTENT###</div>' +
@@ -68,7 +66,7 @@ $("#my-timeline").timeline(data, {
 });
 ```
 
-#### events_per_slide ####
+#### eventsPerSlide ####
 
 >Sets the number of events per slide.
 

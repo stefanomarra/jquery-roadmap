@@ -23,20 +23,18 @@
 		}
 		var settings = $.extend({
 			slide: 1,
-			events_per_slide: 6,
-			event_template: '<li class="timeline__events__event">' + '<div class="event">' + '<div class="event__date">####DATE###</div>' + '<div class="event__content">####CONTENT###</div>' + '</div>' + '</li>',
-			navigation: {
-				prev: 'prev',
-				next: 'next'
-			}
+			eventsPerSlide: 6,
+			eventTemplate: '<li class="timeline__events__event">' + '<div class="event">' + '<div class="event__date">####DATE###</div>' + '<div class="event__content">####CONTENT###</div>' + '</div>' + '</li>',
+			prevArrow: 'prev',
+			nextArrow: 'next'
 		}, opts);
 
 		var buildEvent = function (event, key) {
-			var html = settings.event_template;
+			var html = settings.eventTemplate;
 			html = html.replace('####DATE###', event.date);
 			html = html.replace('####CONTENT###', event.content);
 
-			var left = 100 / (settings.events_per_slide - 1) * key;
+			var left = 100 / (settings.eventsPerSlide - 1) * key;
 
 			return $(html).css('left', left + '%');
 		};
@@ -67,7 +65,7 @@
 				var settings = $this.data('settings');
 				var events = $this.data('events');
 
-				$('<ol/>', { class: 'timeline__events' }).append(events.slice(currentSlide * settings.events_per_slide, (currentSlide + 1) * settings.events_per_slide).map(buildEvent)).appendTo(_this);
+				$('<ol/>', { class: 'timeline__events' }).append(events.slice(currentSlide * settings.eventsPerSlide, (currentSlide + 1) * settings.eventsPerSlide).map(buildEvent)).appendTo(_this);
 			};
 
 			var buildNavigation = function () {
@@ -77,13 +75,13 @@
 					switch (nav) {
 						case 'prev':
 							if (currentSlide > 0) {
-								return $('<li><a href="#" class="' + nav + '">' + settings.navigation[nav] + '</a></li>');
+								return $('<li><a href="#" class="' + nav + '">' + settings.prevArrow + '</a></li>');
 							}
 							break;
 
 						case 'next':
-							if ((currentSlide + 1) * settings.events_per_slide < events.length) {
-								return $('<li><a href="#" class="' + nav + '">' + settings.navigation[nav] + '</a></li>');
+							if ((currentSlide + 1) * settings.eventsPerSlide < events.length) {
+								return $('<li><a href="#" class="' + nav + '">' + settings.nextArrow + '</a></li>');
 							}
 							break;
 					}
@@ -91,7 +89,7 @@
 					return $('<li></li>');
 				};
 
-				$('<ul/>', { class: 'timeline__navigation' }).append(Object.keys(settings.navigation).map(buildNav)).appendTo(_this);
+				$('<ul/>', { class: 'timeline__navigation' }).append(['prev', 'next'].map(buildNav)).appendTo(_this);
 			};
 
 			var build = function () {
@@ -124,7 +122,7 @@
 			/**
     * Event Listeners
     */
-			$('body').on('click', '.timeline .timeline__navigation a', function (e) {
+			$('body').on('click', '.timeline .timeline__navigation li > *', function (e) {
 				e.preventDefault();
 
 				/**
@@ -152,7 +150,7 @@
 				else {
 
 						var currentSlide = $this.data('currentSlide');
-						if ((currentSlide + 1) * settings.events_per_slide >= events.length) {
+						if ((currentSlide + 1) * settings.eventsPerSlide >= events.length) {
 							return false;
 						}
 
