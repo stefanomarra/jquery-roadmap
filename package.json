@@ -13,7 +13,7 @@
     "email": "stefano.marra1987@gmail.com",
     "url": "https://github.com/stefanomarra"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "jquery": ">=1.5.1"
   },
