@@ -2,6 +2,11 @@
   "name": "jquery-timeline",
   "version": "1.0.0",
   "description": "A simple timeline plugin for jQuery",
+  "main": "src/jquery.timeline.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefanomarra/jquery-timeline"
+  },
   "keywords": [
     "jquery-plugin",
     "jquery",
