@@ -57,6 +57,7 @@ Second parameter is an object of properties used to customize the timeline. Here
 $("#my-roadmap").roadmap(data, {
 	eventsPerSlide: 6,
 	slide: 1,
+	rootClass: 'roadmap',
 	prevArrow: 'prev',
 	nextArrow: 'next',
 	eventTemplate: '<li class="roadmap__events__event">' +
@@ -79,6 +80,12 @@ $("#my-roadmap").roadmap(data, {
 >Sets the slide to show after initialization.
 
 >*Default value:* 1
+
+#### rootClass ####
+
+>Allows you to change the css root class.
+
+>*Default value:* roadmap
 
 #### prevArrow ####
 

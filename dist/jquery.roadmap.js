@@ -29,16 +29,20 @@
 		if (!events instanceof Array) {
 			events = [];
 		}
-		var settings = $.extend({
+
+		var defaults = {
 			slide: 1,
 			eventsPerSlide: 6,
-			eventTemplate: '<li class="roadmap__events__event">' + '<div class="event">' + '<div class="event__date">####DATE###</div>' + '<div class="event__content">####CONTENT###</div>' + '</div>' + '</li>',
+			rootClass: 'roadmap',
 			prevArrow: 'prev',
-			nextArrow: 'next'
-		}, opts);
+			nextArrow: 'next',
+			eventTemplate: '<div class="event">' + '<div class="event__date">####DATE###</div>' + '<div class="event__content">####CONTENT###</div>' + '</div>'
+		};
+
+		var settings = $.extend({}, defaults, opts);
 
 		var buildEvent = function (event, key) {
-			var html = settings.eventTemplate;
+			var html = '<li class="' + settings.rootClass + '__events__event">' + settings.eventTemplate + '</li>';
 			html = html.replace('####DATE###', event.date);
 			html = html.replace('####CONTENT###', event.content);
 
@@ -59,13 +63,13 @@
 				events: events,
 				settings: settings,
 				currentSlide: currentSlide
-			}).addClass('roadmap');
+			}).addClass(settings.rootClass);
 
 			var clear = function () {
-				$this.removeClass('roadmap--initialized');
+				$this.removeClass(settings.rootClass + '--initialized');
 
-				$this.find('.roadmap__events').remove();
-				$this.find('.roadmap__navigation').remove();
+				$this.find('.' + settings.rootClass + '__events').remove();
+				$this.find('.' + settings.rootClass + '__navigation').remove();
 			};
 
 			var buildEvents = function () {
@@ -73,7 +77,7 @@
 				var settings = $this.data('settings');
 				var events = $this.data('events');
 
-				$('<ol/>', { class: 'roadmap__events' }).append(events.slice(currentSlide * settings.eventsPerSlide, (currentSlide + 1) * settings.eventsPerSlide).map(buildEvent)).appendTo(_this);
+				$('<ol/>', { class: settings.rootClass + '__events' }).append(events.slice(currentSlide * settings.eventsPerSlide, (currentSlide + 1) * settings.eventsPerSlide).map(buildEvent)).appendTo(_this);
 			};
 
 			var buildNavigation = function () {
@@ -97,7 +101,7 @@
 					return $('<li></li>');
 				};
 
-				$('<ul/>', { class: 'roadmap__navigation' }).append(['prev', 'next'].map(buildNav)).appendTo(_this);
+				$('<ul/>', { class: settings.rootClass + '__navigation' }).append(['prev', 'next'].map(buildNav)).appendTo(_this);
 			};
 
 			var build = function () {
@@ -118,7 +122,7 @@
      * Initialize
      */
 				setTimeout(function () {
-					$this.addClass('roadmap--initialized');
+					$this.addClass(settings.rootClass + '--initialized');
 				}, 100);
 			};
 
@@ -130,7 +134,7 @@
 			/**
     * Event Listeners
     */
-			$('body').on('click', '.roadmap .roadmap__navigation li > *', function (e) {
+			$('body').on('click', '.' + settings.rootClass + ' .' + settings.rootClass + '__navigation li > *', function (e) {
 				e.preventDefault();
 
 				/**
