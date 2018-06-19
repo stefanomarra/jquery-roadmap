@@ -60,12 +60,10 @@ $("#my-roadmap").roadmap(data, {
 	rootClass: 'roadmap',
 	prevArrow: 'prev',
 	nextArrow: 'next',
-	eventTemplate: '<li class="roadmap__events__event">' +
-		'<div class="event">' +
+	eventTemplate: '<div class="event">' +
 			'<div class="event__date">####DATE###</div>' +
 			'<div class="event__content">####CONTENT###</div>' +
-		'</div>' +
-	'</li>'
+		'</div>'
 });
 ```
 

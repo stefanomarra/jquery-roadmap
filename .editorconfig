@@ -14,4 +14,4 @@ insert_final_newline = true
 # Javascripts
 [*.js]
 indent_style = tab
-tab_width = 4
+tab_width = 3
