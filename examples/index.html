@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>jQuery Timeline</title>
+    <title>jQuery Roadmap</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- Include jQuery Timeline CSS -->
-    <link href="../dist/jquery.timeline.min.css" rel="stylesheet" type="text/css" />
+    <!-- Include jQuery Roadmap CSS -->
+    <link href="../dist/jquery.roadmap.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
 
-    <div id="my-timeline"></div>
+    <div id="my-roadmap"></div>
 
     <!-- Include jQuery -->
     <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
 
-    <!-- Include jQuery Timeline Plugin -->
-    <script src="../dist/jquery.timeline.js" type="text/javascript"></script>
+    <!-- Include jQuery Roadmap Plugin -->
+    <script src="../dist/jquery.roadmap.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
@@ -91,7 +91,7 @@
         		}
         	];
 
-            $('#my-timeline').timeline(events, {
+            $('#my-roadmap').roadmap(events, {
                 eventsPerSlide: 6,
                 slide: 1,
                 prevArrow: '<i class="material-icons">keyboard_arrow_left</i>',

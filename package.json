@@ -1,16 +1,17 @@
 {
-  "name": "jquery-timeline",
+  "name": "jquery-roadmap",
   "version": "1.0.0",
   "description": "A simple timeline plugin for jQuery",
-  "main": "src/jquery.timeline.js",
+  "main": "src/jquery.roadmap.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stefanomarra/jquery-timeline"
+    "url": "https://github.com/stefanomarra/jquery-roadmap"
   },
   "keywords": [
     "jquery-plugin",
     "jquery",
     "timeline",
+    "roadmap",
     "plugins"
   ],
   "author": {

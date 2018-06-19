@@ -25,14 +25,14 @@
 	/**
 	 * jQuery custom plugin implement the roadmap functionality
 	 */
-	$.fn.timeline = function(events, opts) {
+	$.fn.roadmap = function(events, opts) {
 		if ( !events instanceof Array ) {
 			events = [];
 		}
 		var settings = $.extend({
 			slide: 1,
 			eventsPerSlide: 6,
-			eventTemplate: '<li class="timeline__events__event">' +
+			eventTemplate: '<li class="roadmap__events__event">' +
 								'<div class="event">' +
 									'<div class="event__date">####DATE###</div>' +
 									'<div class="event__content">####CONTENT###</div>' +
@@ -64,13 +64,13 @@
 				events: events,
 				settings: settings,
 				currentSlide: currentSlide
-			}).addClass('timeline');
+			}).addClass('roadmap');
 
 			var clear = function() {
-				$this.removeClass('timeline--initialized');
+				$this.removeClass('roadmap--initialized');
 
-				$this.find('.timeline__events').remove();
-				$this.find('.timeline__navigation').remove();
+				$this.find('.roadmap__events').remove();
+				$this.find('.roadmap__navigation').remove();
 			}
 
 			var buildEvents = function() {
@@ -78,7 +78,7 @@
 				var settings = $this.data('settings');
 				var events = $this.data('events');
 
-				$('<ol/>', {class:'timeline__events'}).append(events.slice((currentSlide*settings.eventsPerSlide), ((currentSlide+1)*settings.eventsPerSlide)).map(buildEvent)).appendTo(_this);
+				$('<ol/>', {class:'roadmap__events'}).append(events.slice((currentSlide*settings.eventsPerSlide), ((currentSlide+1)*settings.eventsPerSlide)).map(buildEvent)).appendTo(_this);
 			}
 
 			var buildNavigation = function() {
@@ -102,7 +102,7 @@
 					return $('<li></li>');
 				}
 
-				$('<ul/>', {class:'timeline__navigation'}).append(['prev', 'next'].map(buildNav)).appendTo(_this);
+				$('<ul/>', {class:'roadmap__navigation'}).append(['prev', 'next'].map(buildNav)).appendTo(_this);
 			}
 
 			var build = function() {
@@ -123,19 +123,19 @@
 				 * Initialize
 				 */
 				setTimeout(function() {
-					$this.addClass('timeline--initialized');
+					$this.addClass('roadmap--initialized');
 				}, 100);
 			}
 
 			/**
-			 * Build timeline
+			 * Build roadmap
 			 */
 			build();
 
 			/**
 			 * Event Listeners
 			 */
-			$('body').on('click', '.timeline .timeline__navigation li > *', function(e) {
+			$('body').on('click', '.roadmap .roadmap__navigation li > *', function(e) {
 				e.preventDefault();
 
 				/**

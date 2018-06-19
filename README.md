@@ -1,6 +1,6 @@
-# jQuery Timeline
+# jQuery Roadmap
 
-Another timeline jquery plugin. This plugin was custom made for another project.
+Another timeline jquery plugin. This plugin was custom made for another project and then separated.
 
 ## Usage
 
@@ -13,13 +13,13 @@ Another timeline jquery plugin. This plugin was custom made for another project.
 2. Include plugin's code:
 
 	```html
-	<script src="dist/jquery.timeline.min.js"></script>
+	<script src="dist/jquery.roadmap.min.js"></script>
 	```
 
 3. Call the plugin:
 
 	```javascript
-	$("#my-timeline").timeline(data, options);
+	$("#my-roadmap").roadmap(data, options);
 	```
 
 ## Parameters
@@ -54,12 +54,12 @@ var data = [
 Second parameter is an object of properties used to customize the timeline. Here's a list of all properties and it's default values:
 
 ```js
-$("#my-timeline").timeline(data, {
+$("#my-roadmap").roadmap(data, {
 	eventsPerSlide: 6,
 	slide: 1,
 	prevArrow: 'prev',
 	nextArrow: 'next',
-	eventTemplate: '<li class="timeline__events__event">' +
+	eventTemplate: '<li class="roadmap__events__event">' +
 		'<div class="event">' +
 			'<div class="event__date">####DATE###</div>' +
 			'<div class="event__content">####CONTENT###</div>' +
@@ -98,8 +98,8 @@ $("#my-timeline").timeline(data, {
 
 ## Contributing
 
-Check [CONTRIBUTING.md](https://github.com/stefanomarra/jquery-timeline/blob/master/CONTRIBUTING.md) for more information.
+Check [CONTRIBUTING.md](https://github.com/stefanomarra/jquery-roadmap/blob/master/CONTRIBUTING.md) for more information.
 
 ## License
 
-[MIT License](https://github.com/stefanomarra/jquery-timeline/blob/master/LICENSE) © Stefano Marra
+[MIT License](https://github.com/stefanomarra/jquery-roadmap/blob/master/LICENSE) © Stefano Marra

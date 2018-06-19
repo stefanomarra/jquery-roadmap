@@ -2,7 +2,7 @@
 @import 'base/variables';
 @import 'base/mixins';
 
-.timeline {
+.roadmap {
 	position: relative;
 	width: 95%;
     margin: 0 auto;
@@ -173,11 +173,11 @@
 		.next {}
 	}
 
-	&.timeline--initialized {
+	&.roadmap--initialized {
 
-		.timeline__events {
+		.roadmap__events {
 
-			.timeline__events__event {
+			.roadmap__events__event {
 
 				/**
 				 * Dot
@@ -204,7 +204,7 @@
 	@include md-down {
 		margin: $gap*2 auto;
 
-		.timeline__events {
+		.roadmap__events {
 			padding: 0;
 			width: 80%;
 
@@ -292,11 +292,11 @@
 			}
 		}
 
-		&.timeline--initialized {
+		&.roadmap--initialized {
 
-			.timeline__events {
+			.roadmap__events {
 
-				.timeline__events__event {
+				.roadmap__events__event {
 
 					/**
 					 * Dot
