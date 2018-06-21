@@ -1,6 +1,6 @@
 {
   "name": "jquery-roadmap",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A simple timeline plugin for jQuery",
   "main": "src/jquery.roadmap.js",
   "repository": {
