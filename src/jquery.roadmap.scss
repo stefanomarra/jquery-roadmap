@@ -19,11 +19,13 @@
 			left: 0;
 			display: block;
 			content: "";
-			width: 100%;
+			width: 0%;
 			height: 4px;
 			background-color: $primary-color;
 			// box-shadow: 0 0 30px -1px rgba($primary-color, 0.2);
 			border-radius: 2px;
+
+			transition: all 0.5s linear;
 		}
 
 		&__event {
@@ -176,6 +178,10 @@
 	&.roadmap--initialized {
 
 		.roadmap__events {
+
+			&:after {
+				width: 100%;
+			}
 
 			.roadmap__events__event {
 
