@@ -213,13 +213,13 @@
 		.roadmap__events {
 			padding: 0;
 			width: 80%;
+			min-height: 400px;
 
 			&:after {
 				left: 50%;
 				top: 0;
 				width: 4px;
-				height: calc(100% - 120px);
-				min-height: 400px;
+				height: calc(0% - 0px);
 				transform: translateX(-50%);
 			}
 
@@ -301,6 +301,11 @@
 		&.roadmap--initialized {
 
 			.roadmap__events {
+
+				&:after {
+					width: 4px;
+					height: calc(100% - 120px);
+				}
 
 				.roadmap__events__event {
 
