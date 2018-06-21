@@ -6,7 +6,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
-    karma = require('karma'),
     postcss = require('gulp-postcss'),
     flexibility = require('postcss-flexibility');
 
@@ -97,16 +96,6 @@ gulp.task('build:js', function() {
                 suffix: '.min'
             }))
             .pipe(gulp.dest(DIRS.dest));
-});
-
-// TEST
-gulp.task('test', function (done) {
-    new karma.Server({
-      configFile: __dirname + '/karma.conf.js',
-      singleRun: true
-    }, function() {
-        done();
-    }).start();
 });
 
 // WATCH for file changes and rerun the task
