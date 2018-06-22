@@ -4,9 +4,9 @@
     if (typeof define === 'function' && define.amd) {
         define(['jquery'], factory);
     } else if (typeof exports !== 'undefined') {
-        module.exports = factory(require('jquery'));
+        module.exports = factory(require('jquery'), window, document);
     } else {
-        factory(jQuery);
+        factory(jQuery, window, document);
     }
 
 }(function($, window, document, undefined ) {
@@ -177,6 +177,11 @@
 
 					build();
 				}
+			});
+
+			$(window).on('resize', function () {
+				$this.removeClass(settings.rootClass + '--initialized');
+				build();
 			});
 		});
 	};
