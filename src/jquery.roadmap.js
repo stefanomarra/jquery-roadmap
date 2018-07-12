@@ -36,6 +36,7 @@
 			rootClass: 'roadmap',
 			prevArrow: 'prev',
 			nextArrow: 'next',
+			orientation: 'auto',
 			eventTemplate: '<div class="event">' +
 								'<div class="event__date">####DATE###</div>' +
 								'<div class="event__content">####CONTENT###</div>' +
@@ -107,6 +108,23 @@
 				$('<ul/>', {class: settings.rootClass + '__navigation'}).append(['prev', 'next'].map(buildNav)).appendTo(_this);
 			}
 
+			var setOrientation = function() {
+
+				var getOrientation = function() {
+					switch (settings.orientation) {
+						case 'horizontal':
+						case 'vertical':
+						case 'auto':
+							return settings.orientation;
+							break;
+					}
+
+					return 'auto';
+				}
+
+				$this.addClass(settings.rootClass + '--orientation-' + getOrientation());
+			}
+
 			var build = function() {
 
 				clear();
@@ -120,6 +138,11 @@
 				 * Init navigation
 				 */
 				buildNavigation();
+
+				/**
+				 * Set orientation
+				 */
+				setOrientation();
 
 				/**
 				 * Initialize
