@@ -71,6 +71,7 @@ $("#my-roadmap").roadmap(data, {
 	rootClass: 'roadmap',
 	prevArrow: 'prev',
 	nextArrow: 'next',
+	orientation: 'auto',
 	eventTemplate: '<div class="event">' +
 			'<div class="event__date">####DATE###</div>' +
 			'<div class="event__content">####CONTENT###</div>' +
@@ -107,6 +108,12 @@ $("#my-roadmap").roadmap(data, {
 >Allows you to customize the "Next" arrow. HTML is allowed.
 
 >*Default value:* next
+
+#### orientation ####
+
+>Allows you to force the timeline orientation only to horizontal or vertical. Possible values are: `horizontal`, `vertical` and `auto`.
+
+>*Default value:* auto
 
 #### eventTemplate ####
 
