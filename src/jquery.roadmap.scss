@@ -2,12 +2,12 @@
 @import 'base/variables';
 @import 'base/mixins';
 
-.roadmap {
+@mixin roadmap-default {
 	position: relative;
 	width: 95%;
     margin: 0 auto;
 
-	&__events {
+	.roadmap__events {
 		position: relative;
 		width: calc(100% - 200px);
 		margin: 0 auto;
@@ -137,7 +137,7 @@
 		}
 	}
 
-	&__navigation {
+	.roadmap__navigation {
 		margin: 0;
 
 		&>* {
@@ -205,56 +205,128 @@
 			}
 		}
 	}
+}
 
+@mixin roadmap-vertical {
+	margin: $gap*2 auto;
 
-	@include md-down {
-		margin: $gap*2 auto;
+	.roadmap__events {
+		padding: 0;
+		width: 80%;
+		max-width: 640px;
+		min-height: 400px;
 
-		.roadmap__events {
-			padding: 0;
-			width: 80%;
-			min-height: 400px;
+		&:after {
+			left: 50%;
+			top: 0;
+			width: 4px;
+			height: calc(0% - 0px);
+			transform: translateX(-50%);
+		}
 
-			&:after {
-				left: 50%;
-				top: 0;
-				width: 4px;
-				height: calc(0% - 0px);
-				transform: translateX(-50%);
+		&__event {
+			position: relative;
+			left: auto !important;
+			top: auto;
+			bottom: auto;
+			margin-left: 0;
+			width: auto;
+			height: auto;
+			min-height: 120px;
+
+			&:before {
+				top: -8px;
+				bottom: auto;
 			}
 
-			&__event {
-				position: relative;
-				left: auto !important;
-				top: auto;
+			&:after {
+				top: 0;
 				bottom: auto;
-				margin-left: 0;
-				width: auto;
-				height: auto;
-				min-height: 120px;
+				// width: 48px;
+				width: 0;
+				height: 4px !important;
+			}
 
-				&:before {
-					top: -8px;
-					bottom: auto;
+			.event {
+				top: -15px;
+				bottom: auto;
+				width: 40%;
+
+				@include sm-down {
+					width: 50%;
 				}
+			}
+
+			/**
+			 * Events showing on the left of the timeline
+			 */
+			&:nth-child(odd) {
+
+				&:before {}
 
 				&:after {
-					top: 0;
-					bottom: auto;
-					// width: 48px;
-					width: 0;
-					height: 4px !important;
+					transform: translateX(-100%);
 				}
 
 				.event {
-					top: -15px;
-					bottom: auto;
-					width: 40%;
-
 					@include sm-down {
-						width: 50%;
+						margin-left: -10%;
 					}
 				}
+			}
+
+			/**
+			 * Events showing on the right of the timeline
+			 */
+			&:nth-child(even) {
+
+				&:before {
+					// margin-left: -12px;
+				}
+
+				&:after {
+					transform: translateX(0%);
+				}
+
+				.event {
+					right: 0;
+
+					@include sm-down {
+						margin-right: -10%;
+					}
+				}
+			}
+		}
+	}
+
+	&.roadmap--initialized {
+
+		.roadmap__events {
+
+			&:after {
+				width: 4px;
+				height: calc(100% - 120px);
+			}
+
+			.roadmap__events__event {
+
+				/**
+				 * Dot
+				 */
+				&:before {}
+
+				/**
+				 * Line
+				 */
+				&:after {
+					width: 48px;
+
+					@include sm-down {
+						width: 32px;
+					}
+				}
+
+				.event {}
 
 				/**
 				 * Events showing on the left of the timeline
@@ -267,11 +339,7 @@
 						transform: translateX(-100%);
 					}
 
-					.event {
-						@include sm-down {
-							margin-left: -10%;
-						}
-					}
+					.event {}
 				}
 
 				/**
@@ -279,83 +347,35 @@
 				 */
 				&:nth-child(even) {
 
-					&:before {
-						// margin-left: -12px;
-					}
+					&:before {}
 
 					&:after {
 						transform: translateX(0%);
 					}
 
-					.event {
-						right: 0;
-
-						@include sm-down {
-							margin-right: -10%;
-						}
-					}
-				}
-			}
-		}
-
-		&.roadmap--initialized {
-
-			.roadmap__events {
-
-				&:after {
-					width: 4px;
-					height: calc(100% - 120px);
-				}
-
-				.roadmap__events__event {
-
-					/**
-					 * Dot
-					 */
-					&:before {}
-
-					/**
-					 * Line
-					 */
-					&:after {
-						width: 48px;
-
-						@include sm-down {
-							width: 32px;
-						}
-					}
-
 					.event {}
-
-					/**
-					 * Events showing on the left of the timeline
-					 */
-					&:nth-child(odd) {
-
-						&:before {}
-
-						&:after {
-							transform: translateX(-100%);
-						}
-
-						.event {}
-					}
-
-					/**
-					 * Events showing on the right of the timeline
-					 */
-					&:nth-child(even) {
-
-						&:before {}
-
-						&:after {
-							transform: translateX(0%);
-						}
-
-						.event {}
-					}
 				}
 			}
 		}
+	}
+}
+
+.roadmap {
+
+	&.roadmap--orientation-auto {
+		@include roadmap-default;
+
+		@include md-down {
+			@include roadmap-vertical;
+		}
+	}
+
+	&.roadmap--orientation-horizontal {
+		@include roadmap-default;
+	}
+
+	&.roadmap--orientation-vertical {
+		@include roadmap-default;
+		@include roadmap-vertical;
 	}
 }
