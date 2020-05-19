@@ -37,6 +37,7 @@
 			prevArrow: 'prev',
 			nextArrow: 'next',
 			orientation: 'auto',
+			onBuild: $.noop,
 			eventTemplate: '<div class="event">' + '<div class="event__date">####DATE###</div>' + '<div class="event__content">####CONTENT###</div>' + '</div>'
 		};
 
@@ -146,6 +147,10 @@
      */
 				setTimeout(function () {
 					$this.addClass(settings.rootClass + '--initialized');
+
+					if (settings.onBuild) {
+						settings.onBuild.call(null);
+					}
 				}, 100);
 			};
 
