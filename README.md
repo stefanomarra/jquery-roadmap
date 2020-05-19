@@ -72,6 +72,9 @@ $("#my-roadmap").roadmap(data, {
 	prevArrow: 'prev',
 	nextArrow: 'next',
 	orientation: 'auto',
+	onBuild: function() {
+		console.log('on build event');
+	},
 	eventTemplate: '<div class="event">' +
 			'<div class="event__date">####DATE###</div>' +
 			'<div class="event__content">####CONTENT###</div>' +
@@ -114,6 +117,10 @@ $("#my-roadmap").roadmap(data, {
 >Allows you to force the timeline orientation only to horizontal or vertical. Possible values are: `horizontal`, `vertical` and `auto`.
 
 >*Default value:* auto
+
+#### onBuild ####
+
+>Allows you to pass a callback function that will run after the build
 
 #### eventTemplate ####
 
