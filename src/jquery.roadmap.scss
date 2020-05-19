@@ -310,10 +310,6 @@
 
 			.roadmap__events__event {
 
-				@include md-down {
-					top: -10px;
-				}
-
 				/**
 				 * Dot
 				 */
@@ -330,7 +326,12 @@
 					}
 				}
 
-				.event {}
+				.event {
+
+					@include md-down {
+						top: -10px;
+					}
+				}
 
 				/**
 				 * Events showing on the left of the timeline
