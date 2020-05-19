@@ -9,7 +9,7 @@
 
 	.roadmap__events {
 		position: relative;
-		width: calc(100% - 200px);
+		width: calc(100% - 220px);
 		margin: 0 auto;
 		padding: 200px 0;
 
@@ -326,7 +326,12 @@
 					}
 				}
 
-				.event {}
+				.event {
+
+					@include md-down {
+						top: -10px;
+					}
+				}
 
 				/**
 				 * Events showing on the left of the timeline
