@@ -310,6 +310,10 @@
 
 			.roadmap__events__event {
 
+				@include md-down {
+					top: -10px;
+				}
+
 				/**
 				 * Dot
 				 */
