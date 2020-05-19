@@ -7,7 +7,7 @@ Another timeline jquery plugin. This plugin was custom made for another project 
  - **NPM:** `npm install jquery-roadmap`
  - **CDN:** [jsdelivr.com](https://www.jsdelivr.com/package/npm/jquery-roadmap)
 ```html
-<script src="https://cdn.jsdelivr.net/npm/jquery-roadmap@1.2.0/src/jquery.roadmap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-roadmap@1/dist/jquery.roadmap.min.js"></script>
 ```
  - **Download:** [zip](https://github.com/stefanomarra/jquery-roadmap/archive/master.zip)
 
