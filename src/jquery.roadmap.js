@@ -171,7 +171,8 @@
 				/**
 				 * Handle prev click
 				 */
-				if ( $(this).hasClass('prev') ) {
+			  if ($this.attr('id') == $(this).parent().parent().parent().attr('id')) {
+				 if ($(this).hasClass('prev')) {
 
 					var currentSlide = $this.data('currentSlide');
 					if ( currentSlide < 1 ) {
@@ -204,6 +205,7 @@
 					});
 
 					build();
+				 }
 				}
 			});
 
