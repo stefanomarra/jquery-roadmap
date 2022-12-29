@@ -32,7 +32,7 @@
     "autoprefixer": "^8.6.3",
     "flexibility": "^2.0.1",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
-    "gulp-babel": "^6.1.2",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^2.0.3",
     "gulp-jshint": "^2.1.0",
     "gulp-postcss": "^7.0.1",
